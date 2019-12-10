@@ -29,6 +29,7 @@ class PetList extends React.Component {
     const pets = this.props.pets.map((pet, i) => {
       return (
         <PetCard
+          key={i}
           id={pet.id}
           name={pet.name}
           species={pet.species}

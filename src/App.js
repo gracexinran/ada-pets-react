@@ -35,7 +35,15 @@ class App extends Component {
       petList: newPetList
     })
   }
-  
+
+  addPet = (pet) => {
+    let newPetList = this.state.petList
+    newPetList.push(pet)
+    this.setState({
+      petList: newPetList
+    })
+  }
+
   render () {
     const { currentPet } = this.state;
 
@@ -50,6 +58,9 @@ class App extends Component {
       )
     }
 
+    let newPetId = this.state.petList[this.state.petList.length - 1].id + 1
+    console.log(newPetId)
+    
     return (
       <main className="App">
         <header className="app-header">
@@ -75,6 +86,7 @@ class App extends Component {
 
         <section className="new-pet-form-wrapper">
           { /* Wave 3:  Where NewPetForm should appear */}
+          <NewPetForm newPetId={newPetId} addPetCallback={this.addPet}/>
         </section>
       </main>
     );
