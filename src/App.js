@@ -28,6 +28,14 @@ class App extends Component {
     })
   }
 
+  removePet = (i) => {
+    let newPetList = this.state.petList
+    newPetList.splice(i, 1)
+    this.setState({
+      petList: newPetList
+    })
+  }
+  
   render () {
     const { currentPet } = this.state;
 
@@ -58,9 +66,13 @@ class App extends Component {
 
         <section className="pet-list-wrapper">
           { /* Wave 1:  Where PetList should appear */}
-          <PetList pets={pets} onSelectPet={this.selectPet} />
+          <PetList
+            pets={pets}
+            onSelectPet={this.selectPet}
+            onRemovePet={this.removePet}
+          />
         </section>
-        
+
         <section className="new-pet-form-wrapper">
           { /* Wave 3:  Where NewPetForm should appear */}
         </section>

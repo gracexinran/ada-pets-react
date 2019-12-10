@@ -13,6 +13,10 @@ const PetCard = (props) => {
     props.selectPetCallback(props.index)
   }
 
+  const removePet = () => {
+    props.removePetCallback(props.index)
+  }
+  
   return (
     <div className="card pet-card">
       
@@ -30,6 +34,7 @@ const PetCard = (props) => {
           type="button"
           className="btn btn-danger pet-card--remove-btn"
           aria-label="Remove"
+          onClick={removePet}
         >
           Remove
         </button>

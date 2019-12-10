@@ -21,6 +21,10 @@ class PetList extends React.Component {
     this.props.onSelectPet(i)
   }
 
+  removePet = (i) => {
+    this.props.onRemovePet(i)
+  }
+
   render() {
     const pets = this.props.pets.map((pet, i) => {
       return (
@@ -31,6 +35,7 @@ class PetList extends React.Component {
           about={pet.about}
           location={pet.location}
           selectPetCallback={this.selectPet}
+          removePetCallback={this.removePet}
           index={i}
         />
       )
