@@ -40,6 +40,7 @@ class NewPetForm extends Component {
 
   onImagesChange = (event) => {
     const images = event.target.value.split(',')
+    console.log(images)
     this.setState({
       images,
     })
@@ -55,6 +56,7 @@ class NewPetForm extends Component {
   onSubmitPet = (event) => {
     event.preventDefault();
     const pet = {
+      id: this.props.newPetId,
       name: this.state.name,
       species: this.state.species,
       location: this.state.location,
@@ -64,7 +66,6 @@ class NewPetForm extends Component {
 
     this.props.addPetCallback(pet)
     this.setState({
-      id: this.props.newPetId,
       name: '',
       species: '',
       location: '',
@@ -124,7 +125,9 @@ class NewPetForm extends Component {
 
         <div>
           <label htmlFor='about' className="new-pet-form--label">About:</label>
-          <input
+        </div>
+        <div>
+          <textarea
             name='about'
             id='about'
             type='text'
@@ -138,8 +141,6 @@ class NewPetForm extends Component {
       </form>
     );
   }
-
-
 }
 
 NewPetForm.propTypes = {

@@ -59,8 +59,7 @@ class App extends Component {
     }
 
     let newPetId = this.state.petList[this.state.petList.length - 1].id + 1
-    console.log(newPetId)
-    
+
     return (
       <main className="App">
         <header className="app-header">
