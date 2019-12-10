@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PetList from './components/PetList';
-import PetCard from './components/PetCard'
 import PetDetails from './components/PetDetails';
 import SearchBar from './components/SearchBar';
 import NewPetForm from './components/NewPetForm';
@@ -22,7 +21,7 @@ class App extends Component {
     console.log(pets);
   }
 
-  onSelectPetCallback = (i) => {
+  selectPet = (i) => {
     const pet = this.state.petList[i]
     this.setState({
       currentPet: pet
@@ -35,28 +34,33 @@ class App extends Component {
     let showCurrentPet = null
     if (currentPet) {
       showCurrentPet = (
-        <section>
+        <section className='pet-details'>
           <PetDetails
             currentPet={currentPet}
           />
         </section>
       )
     }
+
     return (
       <main className="App">
         <header className="app-header">
           <h1>Ada Pets</h1>
         </header>
+
         <section className="search-bar-wrapper">
           { /* Wave 4:  Place to add the SearchBar component */}
           <SearchBar />
         </section>
+
         { /* Wave 1:  Where Pet Details should appear */}
         {showCurrentPet}
+
         <section className="pet-list-wrapper">
           { /* Wave 1:  Where PetList should appear */}
-          <PetList pets={pets} onSelectPet={this.onSelectPetCallback}/>
+          <PetList pets={pets} onSelectPet={this.selectPet} />
         </section>
+        
         <section className="new-pet-form-wrapper">
           { /* Wave 3:  Where NewPetForm should appear */}
         </section>

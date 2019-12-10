@@ -17,24 +17,22 @@ class PetList extends React.Component {
     onSelectPet: PropTypes.func,
   }
 
-  showSelectPet = (i) => {
+  selectPet = (i) => {
     this.props.onSelectPet(i)
   }
 
   render() {
     const pets = this.props.pets.map((pet, i) => {
       return (
-        <section key={i}>
-          <PetCard
-            id={pet.id}
-            name={pet.name}
-            species={pet.species}
-            about={pet.about}
-            location={pet.location}
-            selectPetCallback={this.showSelectPet}
-            index={i}
-          />
-        </section>
+        <PetCard
+          id={pet.id}
+          name={pet.name}
+          species={pet.species}
+          about={pet.about}
+          location={pet.location}
+          selectPetCallback={this.selectPet}
+          index={i}
+        />
       )
     })
 

@@ -12,19 +12,20 @@ const PetCard = (props) => {
   const selectPet = () => {
     props.selectPetCallback(props.index)
   }
-  
+
   return (
     <div className="card pet-card">
-
+      
       <section className="pet-card--header">
-
         {speciesEmoji(species)} {id} - {name}
+
         <button
           className="btn btn-primary pet-card--select-pet-btn"
           onClick={selectPet}
         >
           Select
         </button>
+
         <button
           type="button"
           className="btn btn-danger pet-card--remove-btn"
@@ -32,13 +33,17 @@ const PetCard = (props) => {
         >
           Remove
         </button>
+
       </section>
+
       <section className="pet-card--body">
         {about.length > 128 ? `${ about.substring(0, 128) }...` : about}
       </section>
+
       <section className="pet-card--footer text-muted">
         {location}
       </section>
+
     </div>
   );
 };
