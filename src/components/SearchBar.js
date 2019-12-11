@@ -1,26 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './SearchBar.css';
 
-class SearchBar extends Component {
-
-  constructor(props) {
-    super(props);
-
+const SearchBar = () => {
+  const filterList = (event) => {
+    if (event.target.value) {
+      this.props.filterListCallback(event.target.value.toLowerCase())
+    }
   }
 
-  render() {
-    return (
-      <section>
-      </section>
-    );
-  }
-};
+  return (
+    <section>
+      <input type="text" placeholder="Search" onChange={filterList}/>
+    </section>
+  )
+}
 
 SearchBar.propTypes = {
-  
-};
+  filterListCallback: PropTypes.func.isRequired
+}
 
 export default SearchBar;
